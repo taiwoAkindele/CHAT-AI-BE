@@ -7,7 +7,7 @@ import cors from "cors";
 config();
 const app = express();
 //middlewares
-app.use(cors());
+app.use(cors({ credentials: true, origin: "https://chat-ai-frontend-one.vercel.app" }));
 app.use(express.json());
 app.use(cookieParser(process.env.COOKIE_SECRET));
 //remove it in production
