@@ -39,6 +39,7 @@ export const userSignup = async (req, res, next) => {
             expires,
             httpOnly: true,
             signed: true,
+            sameSite: "none",
         });
         return res
             .status(201)
@@ -77,6 +78,7 @@ export const userLogin = async (req, res, next) => {
             expires,
             httpOnly: true,
             signed: true,
+            sameSite: "none",
         });
         return res
             .status(200)

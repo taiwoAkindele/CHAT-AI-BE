@@ -50,6 +50,7 @@ export const userSignup = async (
       expires,
       httpOnly: true,
       signed: true,
+      sameSite: "none",
     });
 
     return res
@@ -96,6 +97,7 @@ export const userLogin = async (
       expires,
       httpOnly: true,
       signed: true,
+      sameSite: "none",
     });
 
     return res
