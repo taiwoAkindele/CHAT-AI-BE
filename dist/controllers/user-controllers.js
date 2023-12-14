@@ -26,7 +26,6 @@ export const userSignup = async (req, res, next) => {
         // create token and store cookie
         res.clearCookie(COOKIE_NAME, {
             httpOnly: false,
-            domain: "vercel.app",
             signed: true,
             path: "/",
         });
@@ -35,7 +34,6 @@ export const userSignup = async (req, res, next) => {
         expires.setDate(expires.getDate() + 7);
         res.cookie(COOKIE_NAME, token, {
             path: "/",
-            domain: "vercel.app",
             expires,
             httpOnly: false,
             signed: true,
@@ -66,7 +64,6 @@ export const userLogin = async (req, res, next) => {
         // create token and store cookie
         res.clearCookie(COOKIE_NAME, {
             httpOnly: false,
-            domain: "vercel.app",
             signed: true,
             path: "/",
         });
@@ -75,7 +72,6 @@ export const userLogin = async (req, res, next) => {
         expires.setDate(expires.getDate() + 7);
         res.cookie(COOKIE_NAME, token, {
             path: "/",
-            domain: "vercel.app",
             expires,
             httpOnly: false,
             signed: true,
@@ -122,7 +118,6 @@ export const userLogout = async (req, res, next) => {
         }
         res.clearCookie(COOKIE_NAME, {
             httpOnly: false,
-            domain: "vercel.app",
             signed: true,
             path: "/",
         });
