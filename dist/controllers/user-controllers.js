@@ -25,7 +25,7 @@ export const userSignup = async (req, res, next) => {
         await user.save();
         // create token and store cookie
         res.clearCookie(COOKIE_NAME, {
-            httpOnly: true,
+            httpOnly: false,
             domain: "vercel.app",
             signed: true,
             path: "/",
@@ -37,7 +37,7 @@ export const userSignup = async (req, res, next) => {
             path: "/",
             domain: "vercel.app",
             expires,
-            httpOnly: true,
+            httpOnly: false,
             signed: true,
             sameSite: "none",
             secure: true,
@@ -65,7 +65,7 @@ export const userLogin = async (req, res, next) => {
         }
         // create token and store cookie
         res.clearCookie(COOKIE_NAME, {
-            httpOnly: true,
+            httpOnly: false,
             domain: "vercel.app",
             signed: true,
             path: "/",
@@ -77,7 +77,7 @@ export const userLogin = async (req, res, next) => {
             path: "/",
             domain: "vercel.app",
             expires,
-            httpOnly: true,
+            httpOnly: false,
             signed: true,
             sameSite: "none",
             secure: true,
@@ -121,7 +121,7 @@ export const userLogout = async (req, res, next) => {
             return res.status(401).send("Permissions didn't match");
         }
         res.clearCookie(COOKIE_NAME, {
-            httpOnly: true,
+            httpOnly: false,
             domain: "vercel.app",
             signed: true,
             path: "/",
