@@ -40,6 +40,7 @@ export const userSignup = async (req, res, next) => {
             httpOnly: true,
             signed: true,
             sameSite: "none",
+            secure: true,
         });
         return res
             .status(201)
@@ -68,6 +69,7 @@ export const userLogin = async (req, res, next) => {
             domain: ".vercel.app",
             signed: true,
             path: "/",
+            secure: true,
         });
         const token = createToken(user._id.toString(), user.email, "7d");
         const expires = new Date();
